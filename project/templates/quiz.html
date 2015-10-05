@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%load crispy_forms_tags%}
+{%load filename%}
+{%block jumbotron%}
+{%load staticfiles%}
+<style>
+#id_question{
+	width:200px;
+	height:100px;
+}
+</style>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  	{%if form%}
+  <div class="col-md-8">
+  	<form method="POST" action=''>{%csrf_token%}
+  	Question:
+  	{{form.question}}<br><br>
+
+  	Option A  {{form.option_a}} <input type='radio' class='radio_1' name='option' value='0' checked="checked"/><br>
+  	Option B  {{form.option_b}} <input type='radio' class='radio_1' name='option' value='1' /><br>
+  	Option C  {{form.option_c}} <input type='radio' class='radio_1' name='option' value='2' /><br>
+  	Option D  {{form.option_d}} <input type='radio' class='radio_1' name='option' value='3' /><br>
+  	<input type='submit' value='Submit'>
+  	</form>
+  </div>
+  {%endif%}
+  
+
+</div>
+{%endblock%}
